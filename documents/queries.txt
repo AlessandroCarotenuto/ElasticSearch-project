@@ -1,0 +1,342 @@
+1- Numero di vaccinazioni prima+seconda+booster+pregressa per giorno in ordine decrescente [DATASET BASE]
+GET /vaccines/_search
+{
+  "size":0,
+ "query": {
+   "bool": {
+     "must": [
+       {
+         "range": {
+           "data_somministrazione": {
+             "gte": "2021-09-25T00:00:00Z+01",
+             "lte": "2021-12-25T00:00:00Z+01"
+           }
+         }
+       }
+     ]
+   }
+ },
+ "aggs": {
+   "vacc_by_date": {
+     "terms": {
+       "field": "data_somministrazione",
+       "order": {"Totale_dosi": "desc"}
+     },
+     "aggs" : {
+        "Totale_dosi" : { "sum" : { "script" : "doc['prima_dose'].value + doc['seconda_dose'].value + doc['dose_addizionale_booster'].value + doc['pregressa_infezione'].value" } }
+     }
+   }
+ }
+}
+
+2-Numero di vaccinazione per regione divise in fornitori [DATASET BASE]
+GET /vaccines/_search
+{
+  "size":0,
+ "query": {
+   "bool": {
+     "must": [
+       {
+         "range": {
+           "data_somministrazione": {
+             "gte": "2021-09-25T00:00:00Z+01",
+             "lte": "2021-12-25T00:00:00Z+01"
+           }
+         }
+       }
+     ]
+   }
+ },
+ "aggs": {
+   "vacc_by_date": {
+     "terms": {
+       "field": "nome_area"
+     },
+     "aggs": {
+       "s": {
+         "terms": {
+           "field": "fornitore",
+            "order": {"Totale_dosi": "desc"}
+         },
+         "aggs" : {
+            "Totale_dosi" : { "sum" : { "script" : "doc['prima_dose'].value + doc['seconda_dose'].value + doc['dose_addizionale_booster'].value + doc['pregressa_infezione'].value" } }
+        }
+       }
+     }
+   }
+ }
+}
+
+3-Dose di astrazeneca divise per età
+GET /vaccines/_search
+{
+  "size":0,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "fornitore": {
+              "value": "Vaxzevria (AstraZeneca)"
+            }
+          }
+          
+        },
+        {
+          "range": {
+           "data_somministrazione": {
+             "gte": "2021-09-25T00:00:00Z+01",
+             "lte": "2021-12-25T00:00:00Z+01"
+           }
+          }
+        }
+      ]
+    }
+  },
+  "aggs": {
+    "aggr1": {
+      "terms": {
+        "field": "fascia_anagrafica"
+      },
+      "aggs" : {
+            "Totale_dosi" : { "sum" : { "script" : "doc['prima_dose'].value + doc['seconda_dose'].value + doc['dose_addizionale_booster'].value + doc['pregressa_infezione'].value" } }
+        }
+    }
+  }
+}
+
+4-Trova tutte le vaccinazioni in un giorno (25/11/2021) in lombardia [DATASET BASE]
+GET /vaccines/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "data_somministrazione": {
+              "value": "2021-11-25T00:00:00"
+            }
+          }
+        },
+        {
+          "term": {
+            "nome_area": {
+              "value": "Lombardia"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+5-Trova tutte le somministrazioni non nelle zone insulari nella fascia 80+ [DATASET BASE]
+GET /vaccines/_search
+{  
+   "query": {
+     "bool": {
+       "filter": [
+         {
+           "bool": {
+             "must_not":[
+               {
+                 "term":{
+                   "codice_NUTS1":"ITG"
+                 }
+               }
+              ],
+             "should":[  
+                  {
+                    "term":{
+                      "fascia_anagrafica":"80-89"
+                    }
+                  },
+                  {  
+                     "term":{
+                      "fascia_anagrafica":"90+"
+                    }
+                  }
+               ]
+           }
+         }
+       ]
+     }
+   }
+}
+6-trova il paese con il maggior numero di casi per millione il giorno 20/12/2021 [DATASET GLOBALE]
+GET /global_covid/_search
+{ 
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "date": {
+              "value": "2021-12-20T00:00:00"
+            }
+          }
+        }
+      ]
+    }
+  }, 
+  "sort": [
+  {
+    "new_cases_per_million": {
+    "order": "desc"
+  }
+  }
+],
+"size": 1
+}
+7-trova gli attuali positivi gruppati per regione [DATASET REGIONI]
+GET /infection_region/_search
+{ 
+  "size":0,
+  "aggs": {
+    "agg1": {
+      "terms": {
+        "field": "denominazione_regione",
+        "order": {"attuali_positivi": "desc"}
+      },
+      "aggs" : {
+            "attuali_positivi" : { "sum" : { "script" : "doc['variazione_totale_positivi'].value" } }
+        }
+    }
+  }
+}
+
+8-ordina per la settimana tot in paese tot le varianti più comuni
+GET /varianti/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "country": {
+              "value": "Italy"
+            }
+          }
+        },
+        {
+          "term": {
+            "year_week": {
+              "value": "2021-32"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "sort": [
+  {
+    "number_detections_variant": {
+    "order": "desc"
+  }
+  }
+]
+}
+
+OR 
+
+GET /varianti/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "country": {
+              "value": "Italy"
+            }
+          }
+        },
+        {
+          "term": {
+            "year_week": {
+              "value": "2021-32"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "script_fields": {
+  "percentage": {
+     "script": "Math.round((double)doc['number_detections_variant'].value / (double)doc['number_sequenced'].value *100*100)/100.0"
+  },
+  "variant":{
+    "script":"doc['variant'].value"
+  },
+  "week":{
+    "script":"doc['year_week'].value"
+  },
+  "country":{
+    "script":"doc['country'].value"
+  },
+  "source":{
+    "script":"doc['source'].value"
+  }
+},
+  "sort": {
+    "_script": {
+        "script": "Math.round((double)doc['number_detections_variant'].value / (double)doc['number_sequenced'].value *100*100)/100.0",
+        "type": "number",
+        "order": "desc"
+    }
+}
+}
+
+OR
+GET /varianti/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "country": {
+              "value": "Italy"
+            }
+          }
+        },
+        {
+          "term": {
+            "year_week": {
+              "value": "2021-32"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "sort": {
+    "_script": {
+        "script": "Math.round((double)doc['number_detections_variant'].value / (double)doc['number_sequenced'].value *100*100)/100.0",
+        "type": "number",
+        "order": "desc"
+    }
+}
+}
+
+9-update
+PUT vaccines/_doc/B1Xh7H0BdN5GzFyWW-4i
+{
+  "area" : "BAS",
+  "codice_regione_ISTAT" : 17,
+  "nome_area" : "Basilicata",
+  "data_somministrazione" : "2021-12-23",
+  "dose_addizionale_booster" : 0,
+  "codice_NUTS1" : "ITF",
+  "fascia_anagrafica" : "40-49",
+  "prima_dose" : 1,
+  "pregressa_infezione" : 0,
+  "fornitore" : "Janssen",
+  "@timestamp" : "2021-12-23T00:00:00.000+01:00",
+  "seconda_dose" : 0,
+  "sesso_maschile" : 0,
+  "codice_NUTS2" : "ITF5",
+  "sesso_femminile" : 2
+}
+10-DELETE vaccines/_doc/B1Xh7H0BdN5GzFyWW-4i
+
