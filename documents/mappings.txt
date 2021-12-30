@@ -1,0 +1,662 @@
+1. mapping di varianti
+{
+  "varianti" : {
+    "mappings" : {
+      "_meta" : {
+        "created_by" : "file-data-visualizer"
+      },
+      "properties" : {
+        "country" : {
+          "type" : "keyword"
+        },
+        "country_code" : {
+          "type" : "keyword"
+        },
+        "new_cases" : {
+          "type" : "long"
+        },
+        "number_detections_variant" : {
+          "type" : "long"
+        },
+        "number_sequenced" : {
+          "type" : "long"
+        },
+        "number_sequenced_known_variant" : {
+          "type" : "long"
+        },
+        "percent_cases_sequenced" : {
+          "type" : "double"
+        },
+        "percent_variant" : {
+          "type" : "double"
+        },
+        "source" : {
+          "type" : "keyword"
+        },
+        "valid_denominator" : {
+          "type" : "keyword"
+        },
+        "variant" : {
+          "type" : "keyword"
+        },
+        "year_week" : {
+          "type" : "keyword"
+        }
+      }
+    }
+  }
+}
+2.global covid 
+{
+  "global_covid" : {
+    "mappings" : {
+      "_meta" : {
+        "created_by" : "file-data-visualizer"
+      },
+      "properties" : {
+        "@timestamp" : {
+          "type" : "date"
+        },
+        "aged_65_older" : {
+          "type" : "double"
+        },
+        "aged_70_older" : {
+          "type" : "double"
+        },
+        "cardiovasc_death_rate" : {
+          "type" : "double"
+        },
+        "continent" : {
+          "type" : "keyword"
+        },
+        "date" : {
+          "type" : "date",
+          "format" : "iso8601"
+        },
+        "diabetes_prevalence" : {
+          "type" : "double"
+        },
+        "excess_mortality" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "excess_mortality_cumulative" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "excess_mortality_cumulative_absolute" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "excess_mortality_cumulative_per_million" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "extreme_poverty" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "female_smokers" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "gdp_per_capita" : {
+          "type" : "double"
+        },
+        "handwashing_facilities" : {
+          "type" : "double"
+        },
+        "hosp_patients" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "hosp_patients_per_million" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "hospital_beds_per_thousand" : {
+          "type" : "double"
+        },
+        "human_development_index" : {
+          "type" : "double"
+        },
+        "icu_patients" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "icu_patients_per_million" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "iso_code" : {
+          "type" : "keyword"
+        },
+        "life_expectancy" : {
+          "type" : "double"
+        },
+        "location" : {
+          "type" : "keyword"
+        },
+        "male_smokers" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "median_age" : {
+          "type" : "double"
+        },
+        "new_cases" : {
+          "type" : "double"
+        },
+        "new_cases_per_million" : {
+          "type" : "double"
+        },
+        "new_cases_smoothed" : {
+          "type" : "double"
+        },
+        "new_cases_smoothed_per_million" : {
+          "type" : "double"
+        },
+        "new_deaths" : {
+          "type" : "double"
+        },
+        "new_deaths_per_million" : {
+          "type" : "double"
+        },
+        "new_deaths_smoothed" : {
+          "type" : "double"
+        },
+        "new_deaths_smoothed_per_million" : {
+          "type" : "double"
+        },
+        "new_people_vaccinated_smoothed" : {
+          "type" : "double"
+        },
+        "new_people_vaccinated_smoothed_per_hundred" : {
+          "type" : "double"
+        },
+        "new_tests" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "new_tests_per_thousand" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "new_tests_smoothed" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "new_tests_smoothed_per_thousand" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "new_vaccinations" : {
+          "type" : "double"
+        },
+        "new_vaccinations_smoothed" : {
+          "type" : "double"
+        },
+        "new_vaccinations_smoothed_per_million" : {
+          "type" : "double"
+        },
+        "people_fully_vaccinated" : {
+          "type" : "double"
+        },
+        "people_fully_vaccinated_per_hundred" : {
+          "type" : "double"
+        },
+        "people_vaccinated" : {
+          "type" : "double"
+        },
+        "people_vaccinated_per_hundred" : {
+          "type" : "double"
+        },
+        "population" : {
+          "type" : "double"
+        },
+        "population_density" : {
+          "type" : "double"
+        },
+        "positive_rate" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "reproduction_rate" : {
+          "type" : "double"
+        },
+        "stringency_index" : {
+          "type" : "double"
+        },
+        "tests_per_case" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "tests_units" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "total_boosters" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "total_boosters_per_hundred" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "total_cases" : {
+          "type" : "double"
+        },
+        "total_cases_per_million" : {
+          "type" : "double"
+        },
+        "total_deaths" : {
+          "type" : "double"
+        },
+        "total_deaths_per_million" : {
+          "type" : "double"
+        },
+        "total_tests" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "total_tests_per_thousand" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "total_vaccinations" : {
+          "type" : "double"
+        },
+        "total_vaccinations_per_hundred" : {
+          "type" : "double"
+        },
+        "weekly_hosp_admissions" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "weekly_hosp_admissions_per_million" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "weekly_icu_admissions" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "weekly_icu_admissions_per_million" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+3.mapping vaccinazioni in ita
+{
+  "vaccines" : {
+    "mappings" : {
+      "_meta" : {
+        "created_by" : "file-data-visualizer"
+      },
+      "properties" : {
+        "@timestamp" : {
+          "type" : "date"
+        },
+        "area" : {
+          "type" : "keyword"
+        },
+        "codice_NUTS1" : {
+          "type" : "keyword"
+        },
+        "codice_NUTS2" : {
+          "type" : "keyword"
+        },
+        "codice_regione_ISTAT" : {
+          "type" : "long"
+        },
+        "data_somministrazione" : {
+          "type" : "date",
+          "format" : "iso8601"
+        },
+        "dose_addizionale_booster" : {
+          "type" : "long"
+        },
+        "fascia_anagrafica" : {
+          "type" : "keyword"
+        },
+        "fornitore" : {
+          "type" : "keyword"
+        },
+        "nome_area" : {
+          "type" : "keyword"
+        },
+        "pregressa_infezione" : {
+          "type" : "long"
+        },
+        "prima_dose" : {
+          "type" : "long"
+        },
+        "seconda_dose" : {
+          "type" : "long"
+        },
+        "sesso_femminile" : {
+          "type" : "long"
+        },
+        "sesso_maschile" : {
+          "type" : "long"
+        }
+      }
+    }
+  }
+}
+
+4.infezioni per regioni italiane
+{
+  "infection_region" : {
+    "mappings" : {
+      "_meta" : {
+        "created_by" : "file-data-visualizer"
+      },
+      "properties" : {
+        "@timestamp" : {
+          "type" : "date"
+        },
+        "casi_da_screening" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "casi_da_sospetto_diagnostico" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "casi_testati" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "codice_nuts_1" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "codice_nuts_2" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "codice_regione" : {
+          "type" : "long"
+        },
+        "data" : {
+          "type" : "date",
+          "format" : "iso8601"
+        },
+        "deceduti" : {
+          "type" : "long"
+        },
+        "denominazione_regione" : {
+          "type" : "keyword"
+        },
+        "dimessi_guariti" : {
+          "type" : "long"
+        },
+        "ingressi_terapia_intensiva" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "isolamento_domiciliare" : {
+          "type" : "long"
+        },
+        "lat" : {
+          "type" : "double"
+        },
+        "location" : {
+          "type" : "geo_point"
+        },
+        "long" : {
+          "type" : "double"
+        },
+        "note" : {
+          "type" : "keyword"
+        },
+        "note_casi" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "note_test" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "nuovi_positivi" : {
+          "type" : "long"
+        },
+        "ricoverati_con_sintomi" : {
+          "type" : "long"
+        },
+        "stato" : {
+          "type" : "keyword"
+        },
+        "tamponi" : {
+          "type" : "long"
+        },
+        "tamponi_test_antigenico_rapido" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "tamponi_test_molecolare" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "terapia_intensiva" : {
+          "type" : "long"
+        },
+        "totale_casi" : {
+          "type" : "long"
+        },
+        "totale_ospedalizzati" : {
+          "type" : "long"
+        },
+        "totale_positivi" : {
+          "type" : "long"
+        },
+        "totale_positivi_test_antigenico_rapido" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "totale_positivi_test_molecolare" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "variazione_totale_positivi" : {
+          "type" : "long"
+        }
+      }
+    }
+  }
+}
