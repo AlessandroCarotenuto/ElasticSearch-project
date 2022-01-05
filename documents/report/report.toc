@@ -1,34 +1,33 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Problem Specification}{3}{section.1}%
+\contentsline {section}{\numberline {1}Problem Specification & Hypotheses}{3}{section.1}%
 \contentsline {paragraph}{}{3}{section*.2}%
-\contentsline {section}{\numberline {2}Hypotheses}{3}{section.2}%
 \contentsline {paragraph}{}{3}{section*.3}%
-\contentsline {section}{\numberline {3}Queries and Commands}{5}{section.3}%
-\contentsline {paragraph}{}{5}{section*.4}%
-\contentsline {paragraph}{}{5}{section*.5}%
-\contentsline {paragraph}{}{5}{section*.6}%
-\contentsline {subsection}{\numberline {3.1}Queries}{5}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Find all the people with the Reinforced GreenPass}{5}{subsubsection.3.1.1}%
-\contentsline {paragraph}{}{5}{section*.7}%
-\contentsline {paragraph}{}{6}{section*.8}%
-\contentsline {subsubsection}{\numberline {3.1.2}Find the number of vaccinations ordered per month}{7}{subsubsection.3.1.2}%
-\contentsline {paragraph}{}{7}{section*.9}%
-\contentsline {paragraph}{}{7}{section*.10}%
-\contentsline {subsubsection}{\numberline {3.1.3}Find the age average of unvaccinated people}{7}{subsubsection.3.1.3}%
-\contentsline {paragraph}{}{7}{section*.11}%
-\contentsline {paragraph}{}{8}{section*.12}%
-\contentsline {subsubsection}{\numberline {3.1.4}Find all currently infected people}{8}{subsubsection.3.1.4}%
-\contentsline {paragraph}{}{8}{section*.13}%
-\contentsline {paragraph}{}{9}{section*.14}%
-\contentsline {subsubsection}{\numberline {3.1.5}Find the number of tests per authorized body (JOIN) }{10}{subsubsection.3.1.5}%
-\contentsline {paragraph}{}{10}{section*.15}%
-\contentsline {paragraph}{}{10}{section*.16}%
-\contentsline {paragraph}{}{10}{section*.17}%
-\contentsline {subsection}{\numberline {3.2}Commands}{11}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Insert a new Authorized Body (CREATE)}{11}{subsubsection.3.2.1}%
-\contentsline {paragraph}{}{11}{section*.18}%
-\contentsline {subsubsection}{\numberline {3.2.2}Insert a test in a Certification (UPDATE) }{12}{subsubsection.3.2.2}%
-\contentsline {paragraph}{}{12}{section*.19}%
-\contentsline {subsubsection}{\numberline {3.2.3}Delete all the Authorized Bodies that test and are pharmacies (DELETE)}{13}{subsubsection.3.2.3}%
-\contentsline {paragraph}{}{13}{section*.20}%
-\contentsline {section}{\numberline {4}References \& Sources}{14}{section.4}%
+\contentsline {section}{\numberline {2}Queries and Commands}{3}{section.2}%
+\contentsline {paragraph}{}{3}{section*.4}%
+\contentsline {paragraph}{}{3}{section*.5}%
+\contentsline {paragraph}{}{4}{section*.6}%
+\contentsline {subsection}{\numberline {2.1}Queries}{4}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Find all the people with the Reinforced GreenPass}{4}{subsubsection.2.1.1}%
+\contentsline {paragraph}{}{4}{section*.7}%
+\contentsline {paragraph}{}{4}{section*.8}%
+\contentsline {subsubsection}{\numberline {2.1.2}Find the number of vaccinations ordered per month}{6}{subsubsection.2.1.2}%
+\contentsline {paragraph}{}{6}{section*.9}%
+\contentsline {paragraph}{}{6}{section*.10}%
+\contentsline {subsubsection}{\numberline {2.1.3}Find the age average of unvaccinated people}{6}{subsubsection.2.1.3}%
+\contentsline {paragraph}{}{6}{section*.11}%
+\contentsline {paragraph}{}{7}{section*.12}%
+\contentsline {subsubsection}{\numberline {2.1.4}Find all currently infected people}{7}{subsubsection.2.1.4}%
+\contentsline {paragraph}{}{7}{section*.13}%
+\contentsline {paragraph}{}{8}{section*.14}%
+\contentsline {subsubsection}{\numberline {2.1.5}Find the number of tests per authorized body (JOIN) }{9}{subsubsection.2.1.5}%
+\contentsline {paragraph}{}{9}{section*.15}%
+\contentsline {paragraph}{}{9}{section*.16}%
+\contentsline {paragraph}{}{9}{section*.17}%
+\contentsline {subsection}{\numberline {2.2}Commands}{10}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Insert a new Authorized Body (CREATE)}{10}{subsubsection.2.2.1}%
+\contentsline {paragraph}{}{10}{section*.18}%
+\contentsline {subsubsection}{\numberline {2.2.2}Insert a test in a Certification (UPDATE) }{11}{subsubsection.2.2.2}%
+\contentsline {paragraph}{}{11}{section*.19}%
+\contentsline {subsubsection}{\numberline {2.2.3}Delete all the Authorized Bodies that test and are pharmacies (DELETE)}{12}{subsubsection.2.2.3}%
+\contentsline {paragraph}{}{12}{section*.20}%
+\contentsline {section}{\numberline {3}References \& Sources}{13}{section.3}%

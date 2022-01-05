@@ -51,28 +51,16 @@
 \newpage
 \tableofcontents
 \newpage
-\section{Problem Specification}
-\paragraph{}The technological solutions based on the use of Big Data are not limited exclusively to the tracking and profiling of vast amounts of data to obtain information useful for practical purposes - as seen in previous deliveries - but are also fundamental in the field of research and of statistical studies. This time, in fact, our project is focused on the use of an Information Retrieval system specifically designed to the collection and the in-depth study of data to obtain more precise and meaningful analyzes. \\
-In particular, the ElasticSearch search engine will be used to monitor the spread of the SARS-CoV-2 virus in recent times from a global point of view and to track the progress of the vaccination campaign from a perspective no longer linked to individuals but to a larger scale. Thanks to the IR-based approach on which it is based, ElasticSearch is the most suitable system for this kind of task as, compared to other SQL and NoSQL solutions, it gives the possibility to compute more accurate searches by exploiting the main features available: the full-text search and the ranking strategy used to evaluate the relevance of the results obtained, which guarantee more wide-ranging query outcomes in order of "importance".
-\section{Hypotheses}
-\paragraph{} During the design phase,some considerations were made regarding how to structure and implement the database to obtain a solution that was effective and performing but at the same time consistent with the real current scenarios. First of all, two types of documents have been created: Certification and AuthorizedBody; the first represents a sort of ”medical chart” containing the following fundamental information for each individual:
+\section{Problem Specification & Hypotheses}
+\paragraph{}The technological solutions based on the use of Big Data are not limited exclusively to the tracking and to the profiling of vast amounts of data to obtain information useful for practical purposes - as seen in the previous deliveries - but are also fundamental in the field of research and of statistical studies. This time, in fact, our project is focused on the use of an Information Retrieval system specifically designed to the collection and the in-depth study of data to obtain more precise and meaningful analyzes. \\
+The ElasticSearch search engine will be used to monitor the spread of the SARS-CoV-2 virus in recent times from a global point of view and to track the progress of the vaccination campaign from a perspective no longer linked to the individuals but to a larger scale. Thanks to the IR-based approach on which it is based, ElasticSearch is the most suitable system for this kind of task as, compared to other SQL and NoSQL solutions, it gives the possibility to compute more accurate searches by exploiting the main features available: the full-text search and the ranking strategy used to evaluate the relevance of the results obtained, which guarantee more wide-ranging query outcomes in order of "importance".
+\paragraph{} This time, pre-existing datasets released by various government bodies with large amounts of data collected over the last few years were examined, moreover, in order to obtain significant results and realistic information in executing the queries, a time interval was taken at least 3 months. The datasets considered are:
   \begin{enumerate}[noitemsep]
     \item list of tests she/he has undergone,
     \item list of vaccine doses that have been administered,
     \item personal details (such as name, surname, date of birth, etc.),
     \item one or more emergency contacts to call in case of need.
    \end{enumerate}
-Within the documents stored in the database for each of these four fields, subfields have been provided (as shown in the \texttt{"jsonSchema.json"} file into the \texttt{"documents"} folder) that allow you to manage the various data with MongoDB in order to execute specific queries and commands. \par
-The second document contains details related to Authorized Bodies, i.e. institutional places where it is possible to get vaccinated and/or where one can undergo a test, the fields are based on specific assumptions about where these places are located and the healthcare personnel working there. \par
-At last, in order to record a greater number of elements to be processed within the dataset, while ensuring the meaningfulness and consistency of the information stored, some assumptions and limitations have been established in the creation of the data managed by the database, therefore:
-  \begin{itemize}[noitemsep]
-    \item[-] each Authorized Body is associated with a document identified by a unique ID, which is directly referred to in the test/vaccine lists of the Certification document;
-    \item[-] each test/vaccine was associated with only one member of the healthcare personnel who represents a sort of ”responsible” for that given administration;
-    \item[-] for the sake of simplicity in data management, it was decided that for each Authorized Body there should be a list consisting of at most 5 members of the healthcare personnel, ”responsible” for the various tests/vaccines to which they are associated;
-    \item[-] each person can come from any Italian location, but only Authorized Bodies belonging to the city of Milan with the relative coordinates have been examined for the purpose of performing more in-depth analysis on the data;
-	\item[-] vaccines were administered throughout the last year while tests during the last month.
-  \end{itemize}
-\clearpage
 \section{Queries and Commands}
 \paragraph{} The correct functioning of the information system involves the implementation of some essential commands and queries for the database in order to properly support the app and to ensure the right execution of searches among the data available for statistical or practical purposes. \par
 \paragraph{} First of all you need to load the .csv files in two separate collections (authorizedBodies and certifications), you can find them following the path \texttt{"db/ab.csv"} and \texttt{"db/certification.csv"}
