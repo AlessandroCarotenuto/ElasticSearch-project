@@ -1,4 +1,10 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\datasets",
+    "\\documents",
+    "\\documents\\report"
+  ],
+  "SelectedNode": "\\documents\\report\\report.synctex.gz",
   "PreviewInSolutionExplorer": false
 }

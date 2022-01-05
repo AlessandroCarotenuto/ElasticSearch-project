@@ -15,7 +15,7 @@
     citecolor=black,
     filecolor=black,
     linkcolor=black,
-    urlcolor=black
+    urlcolor=blue
 }
 \usepackage{changepage}
 \addto{\captionsenglish}{\renewcommand{\refname}{}}
@@ -51,16 +51,20 @@
 \newpage
 \tableofcontents
 \newpage
-\section{Problem Specification & Hypotheses}
-\paragraph{}The technological solutions based on the use of Big Data are not limited exclusively to the tracking and to the profiling of vast amounts of data to obtain information useful for practical purposes - as seen in the previous deliveries - but are also fundamental in the field of research and of statistical studies. This time, in fact, our project is focused on the use of an Information Retrieval system specifically designed to the collection and the in-depth study of data to obtain more precise and meaningful analyzes. \\
-The ElasticSearch search engine will be used to monitor the spread of the SARS-CoV-2 virus in recent times from a global point of view and to track the progress of the vaccination campaign from a perspective no longer linked to the individuals but to a larger scale. Thanks to the IR-based approach on which it is based, ElasticSearch is the most suitable system for this kind of task as, compared to other SQL and NoSQL solutions, it gives the possibility to compute more accurate searches by exploiting the main features available: the full-text search and the ranking strategy used to evaluate the relevance of the results obtained, which guarantee more wide-ranging query outcomes in order of "importance".
-\paragraph{} This time, pre-existing datasets released by various government bodies with large amounts of data collected over the last few years were examined, moreover, in order to obtain significant results and realistic information in executing the queries, a time interval was taken at least 3 months. The datasets considered are:
+\section{Problem Specification}
+\paragraph{}The technological solutions based on the use of Big Data are not limited exclusively to the tracking and profiling of vast amounts of data to obtain information useful for practical purposes - as seen in previous deliveries - but are also fundamental in the field of research and of statistical studies. This time, in fact, our project is focused on the use of an Information Retrieval system specifically designed to the collection and the in-depth study of data to obtain more precise and meaningful analyzes. \par
+In particular, the ElasticSearch search engine will be used to monitor the spread of the SARS-CoV-2 virus in recent times from a global point of view and to track the progress of the vaccination campaign from a perspective no longer linked to individuals but to a larger scale. Thanks to the IR-based approach on which it is based, ElasticSearch is the most suitable system for this kind of task as, compared to other SQL and NoSQL solutions, it gives the possibility to compute more accurate searches by exploiting the main features available: the full-text search and the ranking strategy used to evaluate the relevance of the results obtained, which guarantee more wide-ranging query outcomes in order of "importance".
+\section{Hypotheses}
+\paragraph{} This time, pre-existing datasets released by various government authorities with large amounts of data collected over the last few years were examined, moreover, in order to obtain significant results and realistic information in executing the queries, a time interval was taken at least 3 months. The datasets considered are:
   \begin{enumerate}[noitemsep]
-    \item list of tests she/he has undergone,
-    \item list of vaccine doses that have been administered,
-    \item personal details (such as name, surname, date of birth, etc.),
-    \item one or more emergency contacts to call in case of need.
+    \item \href{https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati/somministrazioni-vaccini-latest.csv}{administration-vaccines-latest.csv} issued by the \emph{"Commissione Straordinaria per la gestione l’emergenza Covid-19"} appointed by the Italian Government,
+    \item \href{https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv}{dpc-covid19-ita-regions.csv} issued by the \emph{"Dipartimento della Protezione Civile"} in accordance with the rules established by the \emph{"Presidenza del Consiglio dei Ministri"} and the \emph{"Ministero della Salute della Repubblica Italiana"} regarding the Covid-19 emergency,
+    \item \href{https://www.ecdc.europa.eu/en/publications-data/data-virus-variants-covid-19-eueea}{SARS-CoV-2-variants-data-in-EU-EEA.csv} issued by the \emph{"European Center for Disease Prevention and Control"},
+    \item \href{https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv}{owid-covid-data.csv} released by the Oxford University research group that manages the scientific online publication website \emph{ourworldindata.org}, the data collected comes from various institutions such as the \emph{"Center for Systems Science and Engineering (CSSE) at Johns Hopkins University"}.
    \end{enumerate}
+\paragraph{} The datasets are in .csv format and can be found in the WRITE FOLDER folder, two of these contain data relating to the administration of vaccines and cases ascertained for the Italian national territory only, while the other two relate to the spread of SARS-CoV-2 variants in Europe and the global pandemic trend around the world.
+\section{Dataset Schema}
+\paragraph{} This time, pre-existing 
 \section{Queries and Commands}
 \paragraph{} The correct functioning of the information system involves the implementation of some essential commands and queries for the database in order to properly support the app and to ensure the right execution of searches among the data available for statistical or practical purposes. \par
 \paragraph{} First of all you need to load the .csv files in two separate collections (authorizedBodies and certifications), you can find them following the path \texttt{"db/ab.csv"} and \texttt{"db/certification.csv"}
@@ -70,7 +74,6 @@ The ElasticSearch search engine will be used to monitor the spread of the SARS-C
 \item[•] In certifications test/vaccine.id\textunderscore authorized\textunderscore body from String to ObjectId
 \item[•] In authorizedBodies \textunderscore id from String to ObjectId
 \end{itemize}
-
 \subsection{Queries}
 \subsubsection{Find all the people with the Reinforced GreenPass}
 \paragraph{} This query allows us to find all people in possession of a reinforced greenpass after the latest regulations, that is, all those who have been vaccinated in the last 9 months.
