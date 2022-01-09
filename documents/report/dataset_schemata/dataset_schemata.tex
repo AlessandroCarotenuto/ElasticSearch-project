@@ -1,0 +1,224 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{array}
+\usepackage{color} 
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{tcolorbox}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=blue
+}
+\usepackage{changepage}
+\addto{\captionsenglish}{\renewcommand{\refname}{}}
+
+\begin{document}
+
+\title{%
+  Group Project Part 3 - ElasticSearch \\
+  \large of Systems and Methods for Big
+    and Unstructured Data Course \\(SMBUD)\\
+    held by\\ Brambilla Marco\\ Tocchetti Andrea \\
+  \vspace{5mm}
+  \Large \textbf{Group 14}}
+\author{Banfi Federico\\
+  \texttt{10581441}
+  \and
+  Carotenuto Alessandro\\
+  \texttt{10803080}
+  \and
+  Donati Riccardo\\
+  \texttt{10669618}
+  \and
+  Mornatta Davide\\
+  \texttt{10657647}
+  \and
+  Zancani Lea\\
+  \texttt{10608972}}
+\date{Academic year 2021/2022}
+\maketitle
+\begin{center}
+  \includegraphics[width=4cm]{polilogo.png}\\
+\end{center}
+\newpage
+\section{administration-vaccines-latest.csv}
+\paragraph{}
+\begin{center}
+\begin{tabular}{|m{45mm}|>{\raggedright}m{16mm}|m{75mm}|}
+\hline
+\multicolumn{1}{|c|}{\textbf{ Field Name }}
+& \multicolumn{1}{c|}{\textbf{ Data Type }} 
+    	& \multicolumn{1}{c|}{\textbf{ Description }}\\
+\hline
+area & String & Acronyms of the region of delivery \\
+\hline
+fornitore & String & Complete name of the supplier of the vaccine \\
+\hline
+data\_somministrazione & Datetime & Administration date of the vaccines \\
+\hline
+fascia\_anagrafica & String & Age group of the people administered with the vaccines \\
+\hline
+sesso\_maschile & Long & Number of vaccinations administered to males \\
+\hline
+sesso\_femminile & Long & Number of vaccinations administered to females \\
+\hline
+prima\_dose & Long & Number of people administered with the first dose \\
+\hline
+seconda\_dose & Long & Number of people administered with the second dose \\
+\hline
+pregressa\_infezione & Long & Number of people administered with a dose after they have
+been infected \\
+\hline
+dose\_addizionale\_booster & String & Number of people administered with an additional dose/recall \\
+\hline
+codice\_NUTS1 & String & Nomenclature of Territorial Units for Statistics code (Groups of regions) \\
+\hline
+codice\_NUTS2 & String & Nomenclature of Territorial Units for Statistics code (Regions) \\
+\hline
+codice\_regione\_ISTAT & Long & ISTAT code of a region \\
+\hline
+nome\_area & String & Name of the region \\
+\hline
+\end{tabular}
+\end{center}
+\newpage
+
+\section{dpc-covid19-ita-regions.csv}
+\paragraph{}
+\begin{center}
+\begin{tabular}{|m{45mm}|>{\raggedright}m{16mm}|m{75mm}|}
+\hline
+\multicolumn{1}{|c|}{\textbf{ Field Name }}
+& \multicolumn{1}{c|}{\textbf{ Data Type }} 
+    	& \multicolumn{1}{c|}{\textbf{ Description }}\\
+\hline
+casi\_da\_screening & String & Positive cases emerging from surveys and tests, planned at national or regional level \\
+\hline
+casi\_da\_sospetto \_diagnostico & String & Positive cases emerged from clinical activity \\
+\hline
+casi\_testati & String & Total number of people tested \\
+\hline
+codice\_nuts\_1 & String & Nomenclature of Territorial Units for Statistics code (Groups of regions) \\
+\hline
+codice\_nuts\_2 & String & Nomenclature of Territorial Units for Statistics code (Regions) \\
+\hline
+codice\_regione & String & Code of the Region (ISTAT 2019) \\
+\hline
+deceduti & Long & Death \\
+\hline
+denominazione\_regione & String & Name of the Region \\
+\hline
+dimessi\_guariti & Long & Recovered \\
+\hline
+ingressi\_terapia\_intensiva & String & Daily admissions to intensive care \\
+\hline
+isolamento\_domiciliare & Long & Home confinement \\
+\hline
+lat & Double & Latitude \\
+\hline
+location & GeoPoint & Geographic Location \\
+\hline
+long & Double & Longitude \\
+\hline
+note & String & Notes \\
+\hline
+note\_casi & String & Notes on the cases tested \\
+\hline
+note\_test & String & Notes on the tests carried out \\
+\hline
+nuovi\_positivi & Long & News amount of current positive cases \\
+\hline
+ricoverati\_con\_sintomi & Long & Hospitalised patients with symptoms \\
+\hline
+stato & String & Country of reference \\
+\hline
+tamponi & Long & Total amount of tests performed  \\
+\hline
+tamponi\_test\_antigenico \_rapido & String & Antigenic swab tests performed \\
+\hline
+tamponi\_test\_molecolare & String & Molecular swab tests performed \\
+\hline
+terapia\_intensiva & Long & Intensive Care \\
+\hline
+totale\_casi & Long & Total amount of positive cases \\
+\hline
+totale\_ospedalizzati & Long & Total hospitalised patients \\
+\hline
+\end{tabular}
+\end{center}
+\newpage
+\begin{center}
+\begin{tabular}{|m{45mm}|>{\raggedright}m{16mm}|m{75mm}|}
+\hline
+totale\_positivi & Long & Total amount of current positive cases \\
+\hline
+totale\_positivi  \_test\_antigenico\_rapido & String & Current positive cases with an antigenic swab test \\
+\hline
+totale\_positivi  \_test\_molecolare & String & Current positive cases with a molecular swab test \\
+\hline
+variazione\_totale\_positivi & Long & News amount of current positive cases \\
+\hline
+\end{tabular}
+\end{center}
+\newpage
+
+\section{SARS-CoV-2-variants-data-in-EU-EEA.csv}
+\paragraph{}
+\begin{center}
+\begin{tabular}{|m{45mm}|>{\raggedright}m{16mm}|m{75mm}|}
+\hline
+\multicolumn{1}{|c|}{\textbf{ Field Name }}
+& \multicolumn{1}{c|}{\textbf{ Data Type }} 
+    	& \multicolumn{1}{c|}{\textbf{ Description }}\\
+\hline
+country\_code & String & 2-letter ISO country code \\
+\hline
+new\_cases & Long & Weekly number of new confirmed cases \\
+\hline
+number\_detections\_variant & Long & Number of detections reported of the variant \\
+\hline
+number\_sequenced & Long & Weekly number of sequences carried out \\
+\hline
+number\_sequenced \_known\_variant & Long & Weekly number of known variant sequences carried out \\
+\hline
+percent\_cases\_sequenced & Double & 100 x new\_cases/number\_sequenced \\
+\hline
+percent\_variant & Double & 100 x number\_detections\_variant / number\_sequenced. No value given if valid\_denominator == FALSE\\
+\hline
+source & String & Data source, either GISAID EpiCoV database or TESSy \\
+\hline
+valid\_denominator & String & LOREMIPSUM \\
+\hline
+variant & String & Each VOC, Other or UNK \\
+\hline
+year\_week & String & Year and week of reference \\
+\hline
+\end{tabular}
+\end{center}
+\newpage
+
+\section{owid-covid-data.csv}
+\paragraph{}
+\begin{center}
+\begin{tabular}{|m{45mm}|>{\raggedright}m{16mm}|m{75mm}|}
+\hline
+\multicolumn{1}{|c|}{\textbf{ Field Name }}
+& \multicolumn{1}{c|}{\textbf{ Data Type }} 
+    	& \multicolumn{1}{c|}{\textbf{ Description }}\\
+
+\hline
+LOREMIPSUM & LOREMIPSUM & LOREMIPSUM \\
+\hline
+LOREMIPSUM & LOREMIPSUM & LOREMIPSUM \\
+\hline
+\end{tabular}
+\end{center}
+\end{document}
