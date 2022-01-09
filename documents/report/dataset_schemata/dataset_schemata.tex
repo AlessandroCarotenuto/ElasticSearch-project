@@ -77,7 +77,7 @@ seconda\_dose & Long & Number of people administered with the second dose \\
 pregressa\_infezione & Long & Number of people administered with a dose after they have
 been infected \\
 \hline
-dose\_addizionale\_booster & String & Number of people administered with an additional dose/recall \\
+dose\_addizionale\_booster & Long & Number of people administered with an additional dose/recall \\
 \hline
 codice\_NUTS1 & String & Nomenclature of Territorial Units for Statistics code (Groups of regions) \\
 \hline
@@ -100,11 +100,11 @@ nome\_area & String & Name of the region \\
 & \multicolumn{1}{c|}{\textbf{ Data Type }} 
     	& \multicolumn{1}{c|}{\textbf{ Description }}\\
 \hline
-casi\_da\_screening & String & Positive cases emerging from surveys and tests, planned at national or regional level \\
+casi\_da\_screening & Long & Positive cases emerging from surveys and tests, planned at national or regional level \\
 \hline
-casi\_da\_sospetto \_diagnostico & String & Positive cases emerged from clinical activity \\
+casi\_da\_sospetto \_diagnostico & Long & Positive cases emerged from clinical activity \\
 \hline
-casi\_testati & String & Total number of people tested \\
+casi\_testati & Long & Total number of people tested \\
 \hline
 codice\_nuts\_1 & String & Nomenclature of Territorial Units for Statistics code (Groups of regions) \\
 \hline
@@ -118,7 +118,7 @@ denominazione\_regione & String & Name of the Region \\
 \hline
 dimessi\_guariti & Long & Recovered \\
 \hline
-ingressi\_terapia\_intensiva & String & Daily admissions to intensive care \\
+ingressi\_terapia\_intensiva & Long & Daily admissions to intensive care \\
 \hline
 isolamento\_domiciliare & Long & Home confinement \\
 \hline
@@ -142,9 +142,9 @@ stato & String & Country of reference \\
 \hline
 tamponi & Long & Total amount of tests performed  \\
 \hline
-tamponi\_test\_antigenico \_rapido & String & Antigenic swab tests performed \\
+tamponi\_test\_antigenico \_rapido & Long & Antigenic swab tests performed \\
 \hline
-tamponi\_test\_molecolare & String & Molecular swab tests performed \\
+tamponi\_test\_molecolare & Long & Molecular swab tests performed \\
 \hline
 terapia\_intensiva & Long & Intensive Care \\
 \hline
@@ -160,9 +160,9 @@ totale\_ospedalizzati & Long & Total hospitalised patients \\
 \hline
 totale\_positivi & Long & Total amount of current positive cases \\
 \hline
-totale\_positivi  \_test\_antigenico\_rapido & String & Current positive cases with an antigenic swab test \\
+totale\_positivi  \_test\_antigenico\_rapido & Long & Current positive cases with an antigenic swab test \\
 \hline
-totale\_positivi  \_test\_molecolare & String & Current positive cases with a molecular swab test \\
+totale\_positivi  \_test\_molecolare & Long & Current positive cases with a molecular swab test \\
 \hline
 variazione\_totale\_positivi & Long & News amount of current positive cases \\
 \hline
@@ -189,15 +189,15 @@ number\_sequenced & Long & Weekly number of sequences carried out \\
 \hline
 number\_sequenced \_known\_variant & Long & Weekly number of known variant sequences carried out \\
 \hline
-percent\_cases\_sequenced & Double & 100 x new\_cases/number\_sequenced \\
+percent\_cases\_sequenced & Double & 100 x new\_cases / number\_sequenced \\
 \hline
 percent\_variant & Double & 100 x number\_detections\_variant / number\_sequenced. No value given if valid\_denominator == FALSE\\
 \hline
 source & String & Data source, either GISAID EpiCoV database or TESSy \\
 \hline
-valid\_denominator & String & LOREMIPSUM \\
+valid\_denominator & String & GISAID data: TRUE. TESSY data: FALSE if there are discrepancies in the data reported for a given week, such as where the sum of number\_detections\_variant across all variants exceeds number\_sequenced (aggregate data), or where no sequences have been reported that are coded as ‘wild type’ (case-based data). \\
 \hline
-variant & String & Each VOC, Other or UNK \\
+variant & String & Each VOC (\emph{"variants of concern"}, i.e. those considered the most lethal), Other or UNK \\
 \hline
 year\_week & String & Year and week of reference \\
 \hline
@@ -213,11 +213,36 @@ year\_week & String & Year and week of reference \\
 \multicolumn{1}{|c|}{\textbf{ Field Name }}
 & \multicolumn{1}{c|}{\textbf{ Data Type }} 
     	& \multicolumn{1}{c|}{\textbf{ Description }}\\
-
 \hline
-LOREMIPSUM & LOREMIPSUM & LOREMIPSUM \\
+total\_cases & Long & Total confirmed cases of COVID-19 \\
 \hline
-LOREMIPSUM & LOREMIPSUM & LOREMIPSUM \\
+new\_cases & Long & New confirmed cases of COVID-19 \\
+\hline
+total\_deaths & Long & Total deaths attributed to COVID-19 \\
+\hline
+new\_deaths & Long & New deaths attributed to COVID-19 \\
+\hline
+location & String & Geographical location \\
+\hline
+date & Datetime & Date of observation \\
+\hline
+new\_cases\_per\_million & Long & New confirmed cases of COVID-19 per 1,000,000 people \\
+\hline
+total\_tests & Long & Total tests for COVID-19 \\
+\hline
+new\_tests & Long & New tests for COVID-19 (only calculated for consecutive days) \\
+\hline
+positive\_rate & Long & The share of COVID-19 tests that are positive, given as a rolling 7-day average \\
+\hline
+total\_vaccinations & Long & Total number of COVID-19 vaccination doses administered \\
+\hline
+people\_vaccinated & Long & Total number of people who received at least one vaccine dose \\
+\hline
+people\_fully\_vaccinated & Long & Total number of people who received all doses prescribed by the vaccination protocol \\
+\hline
+total\_boosters & Long & Total number of COVID-19 vaccination booster doses administered beyond the number prescribed by the vaccination protocol \\
+\hline
+new\_vaccinations & Long & New COVID-19 vaccination doses administered (only calculated for consecutive days) \\
 \hline
 \end{tabular}
 \end{center}
