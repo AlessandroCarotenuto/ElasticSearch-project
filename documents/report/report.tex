@@ -63,9 +63,26 @@ In particular, the ElasticSearch search engine will be used to monitor the sprea
     \item \href{https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv}{owid-covid-data.csv} released by the Oxford University research group that manages the scientific online publication website \emph{ourworldindata.org}, the data collected comes from various institutions such as the \emph{"Center for Systems Science and Engineering (CSSE) at Johns Hopkins University"}.
    \end{enumerate}
 \newpage
-\paragraph{} The datasets are in .csv format and can be found in the WRITE FOLDER folder, two of these contain data relating to the administration of vaccines and cases ascertained for the Italian national territory only, while the other two relate to the spread of SARS-CoV-2 variants in Europe and the global pandemic trend around the world.
+
 \section{Dataset Schemata}
-\paragraph{} During the import of the data present within each dataset, it was preferred to take advantage of the Automatic Mapping feature available on ElasticSearch, subsequently checking that there were no compatibility problems with the types of the various fields. Furthermore, for those fields that expected String data, the keyword type was used instead of full-text to obtain more precise and targeted results by executing the queries. Below are the tables with the diagrams of the various datasets produced following the Mapping, some fields have been omitted for the sake of brevity (to test the queries not all fields have been taken into consideration and reporting them all in the following tables would have been superfluous), however, it is possible to view the complete diagrams of each dataset with all the fields in the FOLDER NAME folder.
+\paragraph{} The datasets are in .csv format and can be found in the \emph{"/datasets"} folder, two of these contain data relating to the administration of vaccines and cases ascertained for the Italian national territory only, while the other two relate to the spread of SARS-CoV-2 variants in Europe and the global pandemic trend around the world.
+\paragraph{} During the import of the data present within each dataset, it was preferred to take advantage of the Automatic Mapping feature available on ElasticSearch, subsequently checking that there were no compatibility problems with the types of the various fields. Furthermore, for those fields that expected String data, the keyword type was used instead of full-text to obtain more precise and targeted results by executing the queries. Below are the tables with the diagrams of the various datasets produced following the Mapping, some fields have been omitted for the sake of brevity (to test the queries not all fields have been taken into consideration and reporting them all in the following tables would have been superfluous), however, it is possible to view the complete diagrams of each dataset with all the fields in the \emph{"/documents/report/dataset\_schemata"} folder.
+\paragraph{} In order to correctly display the dashboards relating to each dataset, you must first import the file \emph{"/datasets/Dashboard.ndjson"}, in this the following indexes will be created:
+  \begin{enumerate}[noitemsep]
+    \item varianti
+    \item infection\_region
+    \item global\_covid
+    \item vaccines
+   \end{enumerate}
+and then, when uploading the datasets, check that the mappings follow the structure specified in \emph{"dataset\_schemata.pdf"}. Finally assign them respectively to:
+  \begin{enumerate}[noitemsep]
+    \item SARS-CoV-2-variants-data-in-EU-EEA.csv
+    \item dpc-covid19-ita-regioni.csv
+    \item owid-covid-data.csv
+    \item somministrazioni-vaccini-latest.csv
+   \end{enumerate}
+\newpage
+   
 \subsection{administration-vaccines-latest.csv}
 \paragraph{}
 \begin{center}
@@ -84,12 +101,6 @@ fascia\_anagrafica & String & Age group of the people administered with the vacc
 sesso\_maschile & Long & Number of vaccinations administered to males \\
 \hline
 sesso\_femminile & Long & Number of vaccinations administered to females \\
-\hline
-\end{tabular}
-\end{center}
-
-\begin{center}
-\begin{tabular}{|m{45mm}|>{\raggedright}m{16mm}|m{75mm}|}
 \hline
 prima\_dose & Long & Number of people administered with the first dose \\
 \hline
